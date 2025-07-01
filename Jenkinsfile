@@ -45,7 +45,7 @@ pipeline {
         stage('Show Output URL') {
             steps {
                 echo 'Visit http://localhost:5000/api for backend'
-                echo 'Visit http://localhost:3000 for frontend (manually run if needed)'
+                echo 'Visit http://localhost:5173 for frontend (manually run if needed)'
             }
         }
     }
