@@ -1,13 +1,11 @@
 pipeline {
     agent any
 
-    stages {
-        stage('Clone Repo') {
-            steps {
-                git 'https://github.com/Maman08/cicd.git'
-            }
-        }
+    tools {
+        nodejs 'nodejs16'  // if configured in Jenkins tools
+    }
 
+    stages {
         stage('Install Backend') {
             steps {
                 dir('backend') {
@@ -18,7 +16,7 @@ pipeline {
 
         stage('Install Frontend') {
             steps {
-                dir('frontend') {
+                dir('frontend/myapp') {
                     sh 'npm install'
                 }
             }
@@ -34,7 +32,7 @@ pipeline {
 
         stage('Build Frontend') {
             steps {
-                dir('frontend') {
+                dir('frontend/myapp') {
                     sh 'npm run build'
                 }
             }
@@ -51,7 +49,7 @@ pipeline {
         stage('Show Output URL') {
             steps {
                 echo 'Visit http://localhost:5000/api for backend'
-                echo 'Visit http://localhost:3000 for frontend (run manually if needed)'
+                echo 'Visit http://localhost:3000 for frontend (manually run if needed)'
             }
         }
     }
