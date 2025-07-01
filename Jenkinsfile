@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs 'nodejs16'  // if configured in Jenkins tools
-    }
-
     stages {
         stage('Install Backend') {
             steps {
