@@ -1,0 +1,19 @@
+services:
+  backend-a:
+    build:
+      context: ./b1
+    ports:
+      - "5000:5000"
+    depends_on:
+      - redis
+
+  backend-b:
+    build:
+      context: ./b2
+    ports:
+      - "5001:5000"
+    depends_on:
+      - backend-a
+
+  redis:
+   image: redis:7-alpine  

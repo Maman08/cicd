@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: backend-b
+spec: 
+  replicas: 5
+  selector: 
+    matchLabels:
+      app: backend-b
+  template: 
+    metadata: 
+      labels:
+        app: backend-b
+    spec:
+      containers:
+      - name: backend-b
+        image: mritunjay08/flask-backend-b
+
+        ports: 
+        - containerPort: 5000            
