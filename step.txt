@@ -1,0 +1,167 @@
+ Maven Project Setup
+1. Create a New Maven Project
+
+File → New → Maven Project
+
+    ✔️ Check: Create a simple project (skip archetype selection)
+
+    Click Next
+
+2. Enter Project Details
+
+    Group Id: com.dsce
+
+    Artifact Id: MyProject1
+
+Click Finish
+📁 Project Structure Setup
+3. Create Java Package and Class
+
+    Navigate to:
+
+    src/main/java
+
+    → Right-click → New → Package → Name: com.dsce
+
+    Right-click com.dsce → New → Class
+    → Name: App
+
+4. Create config.properties File
+
+    Go to:
+
+    src/main/resources
+
+    → Right-click → New → File → Name: config.properties
+
+5. Create Test Package and Class
+
+    Navigate to:
+
+    src/test/java
+
+    → Right-click → New → Package → Name: com.dsce
+
+    Right-click com.dsce → New → Class → Name: AppTest
+
+🧾 pom.xml — Add Dependencies
+
+Here’s an example pom.xml with basic dependencies:
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.dsce</groupId>
+    <artifactId>MyProject1</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <!-- JUnit for testing -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Apache Commons Configuration (for reading .properties files) -->
+        <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+            <version>1.10</version>
+        </dependency>
+    </dependencies>
+</project>
+
+🔃 Maven Build & Update
+6. Update Maven Project
+
+Right-click on MyProject1 → Maven → Update Project
+
+7. Clean Build
+
+Right-click on MyProject1 → Run As → Maven Build → Goals: clean
+
+8. Install (Build + Test)
+
+Right-click on MyProject1 → Run As → Maven Install
+
+⚙️ Check Java Build Path (Optional)
+
+Right-click on MyProject1 → Properties → Java Build Path
+
+🧱 (Optional) Gradle Init
+
+If you want to initialize a Gradle project inside the same or another directory:
+
+cd MyProject1
+gradle init
+
+    You can choose project type: basic, application, or library.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+File --> new--> maven project---> checkbox (create a simple project) --->groupid(com.dsce) --->artifactid(Myproject1) --->src/main/java-->package-->com.dsce--->right click com.dsce--->new-->class-->name(App) --->src/main/resources--->new-->file--->config.priperties---->
+
+src/test/java----new----package----com. dsce-----new ----classs----AppTest-----
+
+
+
+Pom. Xml dependencies 
+
+Right click myproject---maven----uodate project
+
+Right click myproject---run as---maven build---clean
+
+Again runas--maven install
+
+Myproject---properties--path
+Cmd----gradle init
