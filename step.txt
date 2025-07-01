@@ -165,3 +165,61 @@ Again runas--maven install
 
 Myproject---properties--path
 Cmd----gradle init
+
+
+
+
+
+
+
+
+Maven-archetype-quickstart
+
+App.java
+package com.dsce.finalfirst;
+import java.util.ResourceBundle;
+public class App {
+   public int userlogin(String inuser, String inpwd) {
+       ResourceBundle rb = ResourceBundle.getBundle("config");
+       String username = rb.getString("username");
+       String password = rb.getString("password");
+       if (inuser.equals(username) && inpwd.equals(password))
+           return 1;
+       else
+           return 0;
+   }
+}
+
+Dependencies
+<dependency>
+   <groupId>org.testng</groupId>
+   <artifactId>testng</artifactId>
+   <version>7.5.1</version>
+   <scope>test</scope>
+</dependency>
+
+Main -> folder(resources) -> file(config.properties)
+username=abc;
+password=123;
+
+AppTest.java
+package com.dsce.finalfirst;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+public class AppTest {
+   @Test
+   public void testlogin1() {
+       App app = new App();
+       Assert.assertEquals(0, app.userlogin("abc", "123"));
+   }
+   @Test
+   public void testlogin2() {
+       App app = new App();
+       Assert.assertEquals(1, app.userlogin("abc", "abc@1234"));
+   }
+}
+
+GRADLE(in terminal)
+GROOVY
+gradle init
+gradle build 
